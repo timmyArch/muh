@@ -10,6 +10,7 @@ gem 'jquery-rails'
 
 gem 'redis'
 gem 'pry-rails'
+gem 'haml-rails'
 gem 'puma'
 
 

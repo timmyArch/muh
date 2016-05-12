@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require codemirror
+//= require codemirror/modes/ruby
+//= require codemirror/modes/yaml
+//= require codemirror/keymaps/vim
 //= require_tree .

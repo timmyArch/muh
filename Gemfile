@@ -13,4 +13,4 @@ gem 'pry-rails'
 gem 'haml-rails'
 gem 'puma'
 
-
+gem 'codemirror-rails'

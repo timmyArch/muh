@@ -58,7 +58,7 @@ class Gist < Base
 
   class Snippet < Base
 
-    attr_accessor :paste, :mime_type 
+    attr_accessor :paste, :mime_type, :lang 
 
   end
 

@@ -14,6 +14,8 @@ namespace :codemirror do
         puts "#{y.inspect} detected as valid mode ..."
       end
     end
+    `cp -rf vendor/codemirror/lib/codemirror.js app/assets/javascripts/ 2> /dev/null`
+    `cp -rf vendor/codemirror/lib/codemirror.css app/assets/stylesheets/ 2> /dev/null`
     File.open('config/codemirror.yml', 'w+') do |f| 
       f.write ({modes: valid_modes}).to_yaml
     end

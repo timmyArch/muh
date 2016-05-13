@@ -3,7 +3,6 @@
 - (moo=@gist.contents).each.with_index do |snippet, i|
   %section.section--center.mdl-grid.mdl-grid--no-spacing.mdl-shadow--2dp
     .mdl-card.mdl-cell.mdl-cell--12-col-desktop.mdl-cell--12-col-tablet.mdl-cell--12-col-phone
-      = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.14.2/mode/#{snippet.lang}/#{snippet.lang}.js"
       %textarea{id: "snipp-#{i}"}
         = snippet.paste
       :javascript

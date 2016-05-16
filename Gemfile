@@ -14,3 +14,7 @@ gem 'haml-rails'
 gem 'puma'
 
 gem 'codemirror-rails'
+
+gem 'devise'
+gem 'sqlite3'
+gem 'omniauth-facebook'

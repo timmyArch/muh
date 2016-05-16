@@ -1,10 +1,11 @@
 - content_for :title do
   Gist: #{@gist.id}
-- (moo=@gist.contents).each.with_index do |snippet, i|
+- (moo=@gist.snippets).each.with_index do |snippet, i|
   %section.section--center.mdl-grid.mdl-grid--no-spacing.mdl-shadow--2dp
     .mdl-card.mdl-cell.mdl-cell--12-col-desktop.mdl-cell--12-col-tablet.mdl-cell--12-col-phone
       %textarea{id: "snipp-#{i}"}
-        = snippet.paste
+        = preserve do
+          = snippet.paste
       :javascript
         CodeMirror.fromTextArea($("#snipp-#{i}")[0], 
         {

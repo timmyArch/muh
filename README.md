@@ -6,10 +6,11 @@ Each snippet would be highlighted by using devil [javascript](https://github.com
 
 ## Performance as a service.
 
-Muh should only contain provide a frontend, 
+Muh should only provide a frontend, 
 which is designed and optimized for usability. 
-Otherwise we will provide you a cli util which is linked 
-through a high performance API.
+
+Additionaly we will provide you a cli tool which is linked 
+through a high performance API. ;)
 
 ## Getting started.
 

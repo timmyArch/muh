@@ -15,6 +15,7 @@ class User < Base
     username = Base64.encode64(username)
     fail 'Username already exists.' if conn.exists("user::name::#{username}")
     conn.multi do |x|
+      x.incr("info::users_created")
       x.set("user::name::#{username}", uuid)
       x.set("user::id::#{uuid}", raw_username)
       x.set("user::pass::#{username}", p)
@@ -24,6 +25,7 @@ class User < Base
   end
  
   def self.find_by(username: nil, uuid: nil)
+    conn.incr("info::users_fetched")
     if username
       raw_username = username
       username = Base64.encode64(username)
@@ -38,6 +40,7 @@ class User < Base
   end
 
   def destroy
+    conn.incr("info::users_deleted")
     conn.del("user::name::#{encoded_username}", 
              "user::pass::#{encoded_username}", 
              "user::id::#{self.uuid}")

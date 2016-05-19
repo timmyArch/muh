@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require_tree ./codemirror
+$(document).ready(function() {
+  $.material.init();
+  $('select').select2()
+});

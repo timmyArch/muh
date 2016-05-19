@@ -1,0 +1,28 @@
+%div.container
+  %div.jumbotron{style: 'padding: 0;'}
+    %textarea.hero-spacer.z-depth-2#new_gist{autofocus: true}
+    %a.btn.btn-raised.btn-success.pull-right{style: 'margin-top: 4px; margin-right: 10px;'} Submit
+    %div.form-group{style: 'margin: 10px;'}
+      %label Language
+      %select
+        - @languages.each do |l|
+          %option{value: l}= l.capitalize
+  %div.jumbotron
+    %h2 Short on Vim knowledge?
+    %p
+      Well, that sucks.
+      Try
+      %a{href: 'https://vim.rtorr.com/'} this
+      Vim Cheat Sheet to improve your knowledge.
+      %small.text-muted.pull-right (You really should..)
+:javascript
+  this.editor = CodeMirror.fromTextArea($('#new_gist')[0],
+  {
+    theme: 'solarized dark',
+    keyMap: 'vim',
+    lineNumbers: true,
+    viewportMargin: Infinity
+   });
+   $('select').on("select2:select", function(e) { 
+     editor.setOption('mode', e.target.value);
+   });

@@ -13,4 +13,6 @@ gem 'pry-rails'
 gem 'haml-rails'
 gem 'puma'
 
+gem 'bcrypt'
 gem 'codemirror-rails'
+

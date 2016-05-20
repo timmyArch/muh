@@ -30,4 +30,12 @@
           %form.navbar-form.navbar-right.waves-effect.waves-light{:role => "search"}
             .form-group
               %input.form-control{:placeholder => "Search", :type => "text"}
+    - if flash[:success]
+      %div.container.alter.alert.dismissible.alert-success
+        %button.close{type: :button, data: { dismiss: :alert}} ×
+        = flash[:success]
+    - if flash[:created]
+      %div.container.alter.alert.alert-success
+        %h4= flash[:created]['title']
+        %strong= flash[:created]['id']
     = yield

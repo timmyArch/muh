@@ -1,0 +1,11 @@
+%div.container
+  - @gist.snippets.to_enum.with_index.reverse_each do |s,i|
+    %div.jumbotron{style: 'padding: 0;'}
+      %textarea.hero-spacer.z-depth-2{id: "gist-#{i}"}
+        = preserve do
+          =s.paste
+      %span.label.label-danger.pull-left
+        = s.lang.capitalize
+    :javascript
+      this.viewer($("#gist-#{i}")[0], "#{s.lang}");
+  %a.btn.btn-raised.btn-success.pull-right{href: '/gists/new'} New paste

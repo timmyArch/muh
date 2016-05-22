@@ -1,0 +1,41 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "Muh - In memory gists. - Paste as a service", :name => "description"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Roboto:300,400,500,700", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+    %title= yield :title
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+  %body
+    %nav.navbar.z-depth-2.navbar-info
+      .container
+        .navbar-header
+          %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand.waves-effect.waves-light{href: '/'}
+            %img{src: '/assets/logo.png',
+                 height: 32,
+                 width: 32,
+                 style: 'float: left; margin-right: 10px;'}
+            muhPaste
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %form.navbar-form.navbar-right.waves-effect.waves-light{:role => "search"}
+            .form-group
+              %input.form-control{:placeholder => "Search", :type => "text"}
+    - if flash[:success]
+      %div.container.alter.alert.dismissible.alert-success
+        %button.close{type: :button, data: { dismiss: :alert}} ×
+        = flash[:success]
+    - if flash[:created]
+      %div.container.alter.alert.alert-success
+        %h4= flash[:created]['title']
+        %strong= flash[:created]['id']
+    = yield

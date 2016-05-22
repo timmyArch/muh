@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require_tree .
 //= require_tree ./codemirror
+toastr.options = {
+  "positionClass": "toast-bottom-left",
+  "progressBar": true,
+}
+
+$(document).ready(function() {
+  $.material.init();
+  setupSelect(); // comes from kuhstomize
+});

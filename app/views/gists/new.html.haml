@@ -1,0 +1,27 @@
+%div.container
+  %div.jumbotron
+    %h2 Short on Vim knowledge?
+    %p
+      Well, that sucks.
+      Try
+      %a{href: 'https://vim.rtorr.com/'} this
+      Vim Cheat Sheet to improve your knowledge.
+      %small.text-muted.pull-right (You really should..)
+  = form_tag '/gists', method: :post do
+    %div#gists
+      %div.jumbotron{style: 'padding: 0;'}
+        %textarea.hero-spacer.z-depth-2#gist-0{name: 'gist[]', autofocus: true}
+        %div.form-group{style: 'margin: 10px; overflow: hidden;'}
+          %label Language
+          %select#select-0{name: 'lang[]'}
+            - @languages.each do |l|
+              %option{value: l}= l.capitalize
+    %button.btn.btn-fab.btn-success.pull-right
+      %i.material-icons cloud_done
+    %div.btn.btn-fab.btn-info{onclick: 'addSnippet("gists")', style: 'margin-top: 7px; margin-right: 5px;'}
+      %i.material-icons add
+:javascript
+  this.editor($('#gist-0')[0]);
+  toastr.warning('Please note that the application might be able to set your whole desk on fire',
+               'Highly Experimental',
+               {timeOut: 30000})
